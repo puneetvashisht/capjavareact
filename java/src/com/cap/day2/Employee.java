@@ -43,7 +43,6 @@ public class Employee {
 	// String representation of an object
 	@Override
 	public String toString() {
-//		int id = 34;
 		return "Employee [id=" + this.id + ", name=" + name + ", salary=" + salary + "]";
 	}
 

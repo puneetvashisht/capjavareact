@@ -7,8 +7,8 @@ public class EmployeeTest {
 		Employee emp = new Employee();
 		
 		//accessing fields
-		emp.name = "Ravi";
-		emp.id = 34;
+//		emp.name = "Ravi";
+//		emp.id = 34;
 //		emp.salary = -10000.00;
 		
 		emp.setSalary(-10000.00);

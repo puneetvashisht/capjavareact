@@ -6,6 +6,7 @@ public class Employee {
 		String name;
 		private double salary;
 		
+		
 		public double getSalary() {
 			return salary;
 		}
@@ -16,7 +17,7 @@ public class Employee {
 			}
 		}
 
-		static String companyName = "CAPGEMINI";
+		static final String companyName = "CAPGEMINI";
 	
 	// default/no-arg constructor	
 	public Employee() {
@@ -32,7 +33,10 @@ public class Employee {
 	
 	// Methods
 	double incrementSalary() {
-		salary += 5000;
+		this.salary += 5000;
+		
+//		companyName = "another value";
+		
 		return salary;
 	}
 
@@ -43,7 +47,10 @@ public class Employee {
 		return "Employee [id=" + this.id + ", name=" + name + ", salary=" + salary + "]";
 	}
 
-	
+	protected void finalize() {
+		System.out.println("clean up code goes here...");
+	}
+
 	
 
 }

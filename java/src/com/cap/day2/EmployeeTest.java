@@ -1,3 +1,4 @@
+package com.cap.day2;
 
 public class EmployeeTest {
 
@@ -23,9 +24,16 @@ public class EmployeeTest {
 		Employee emp3 = new Employee(2, "Rajat", 44343.33);
 		
 		System.out.println(emp2.name);
+		emp2.incrementSalary();
+		
+//		Employee.incrementSalary();
+		System.out.println(Employee.companyName);
+		;
+		System.out.println(emp2);
+		
 		System.out.println(emp3.name);
 		
-		System.out.println(emp2.toString());
+		System.out.println(emp2);
 
 
 	}

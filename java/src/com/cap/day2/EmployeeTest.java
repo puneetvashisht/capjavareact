@@ -9,7 +9,9 @@ public class EmployeeTest {
 		//accessing fields
 		emp.name = "Ravi";
 		emp.id = 34;
-		emp.salary = 10000.00;
+//		emp.salary = -10000.00;
+		
+		emp.setSalary(-10000.00);
 		
 		
 		System.out.println(emp.name);
@@ -18,7 +20,7 @@ public class EmployeeTest {
 		// method invocation
 		emp.incrementSalary();
 		
-		System.out.println(emp.salary);
+		System.out.println(emp.getSalary());
 		
 		Employee emp2 = new Employee(34, "Priya", 34343.33);
 		Employee emp3 = new Employee(2, "Rajat", 44343.33);

@@ -4,11 +4,21 @@ public class Employee {
 	// Fields
 		int id;
 		String name;
-		double salary;
+		private double salary;
 		
+		public double getSalary() {
+			return salary;
+		}
+
+		public void setSalary(double salary) {
+			if(salary > 0) {
+				this.salary = salary;
+			}
+		}
+
 		static String companyName = "CAPGEMINI";
 	
-	// default constructor	
+	// default/no-arg constructor	
 	public Employee() {
 			
 	}
@@ -29,7 +39,8 @@ public class Employee {
 	// String representation of an object
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+//		int id = 34;
+		return "Employee [id=" + this.id + ", name=" + name + ", salary=" + salary + "]";
 	}
 
 	

@@ -13,6 +13,8 @@ public class EmployeeTest {
 		
 		emp.setSalary(-10000.00);
 		
+	
+		
 		
 		System.out.println(emp.name);
 		System.out.println(emp.id);

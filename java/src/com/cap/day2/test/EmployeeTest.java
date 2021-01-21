@@ -1,7 +1,6 @@
 package com.cap.day2.test;
 
 import java.util.Date;
-
 import com.cap.day2.Employee;
 
 import static java.lang.Math.*;
@@ -24,6 +23,8 @@ public class EmployeeTest {
 	public static void main(String[] args) {
 		Employee emp;
 //		emp.id;
+		
+		System.out.println(args[0]);
 		
 		m1();
 		

@@ -1,27 +1,11 @@
-package com.cap.day2;
+package com.cap.day3;
 
 public class Employee {
 	// Fields
-		int id;
-		
-		String name;
+		private int id;
+		private String name;
 		private double salary;
 		
-		
-		public double getSalary() {
-			if(salary > 0 && salary < 500000 ) {
-				return salary;
-			}
-			return 0.0;
-		}
-
-		public void setSalary(double salary) {
-			if(salary > 0) {
-				this.salary = salary;
-			}
-		}
-
-		static final String companyName = "CAPGEMINI";
 	
 	// default/no-arg constructor	
 	public Employee() {
@@ -37,13 +21,35 @@ public class Employee {
 	
 	// Methods
 	double incrementSalary() {
-		
-		
 		this.salary += 5000;
-		
-//		companyName = "another value";
-		
+
 		return salary;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
 	}
 
 	// String representation of an object
@@ -52,9 +58,6 @@ public class Employee {
 		return "Employee [id=" + this.id + ", name=" + name + ", salary=" + salary + "]";
 	}
 
-	protected void finalize() {
-		System.out.println("clean up code goes here...");
-	}
 
 	
 

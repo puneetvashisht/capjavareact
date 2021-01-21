@@ -1,6 +1,6 @@
 package com.cap.day3;
 
-
+import com.cap.day2.Employee;
 
 public class ArrayDemo {
 
@@ -30,11 +30,11 @@ public class ArrayDemo {
 		}
 		
 		//enhanced for loop
-//		for(Employee e: employees) {
-//			System.out.println(e);
-//			e.incrementSalary();
-//			System.out.println(e);
-//		}
+		for(Employee e: employees) {
+			System.out.println(e);
+			e.incrementSalary();
+			System.out.println(e);
+		}
 		
 
 	}

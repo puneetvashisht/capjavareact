@@ -36,7 +36,7 @@ public class Employee {
 	}
 	
 	// Methods
-	double incrementSalary() {
+	public double incrementSalary() {
 		
 		
 		this.salary += 5000;

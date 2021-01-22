@@ -1,6 +1,11 @@
 package com.cap.day4;
 
 public class TestBicycle {
+	
+	public static void speedUpBicycle(Bicycle b) {
+		b.speedUp(5);
+	}
+	
 
 	public static void main(String[] args) {
 //		Bicycle bicycle = new Bicycle(10, 3);
@@ -9,17 +14,19 @@ public class TestBicycle {
 //		bicycle.changeGear(5);
 //		System.out.println(bicycle);
 		
-		Bicycle mountainBicycle  = new MountainBicycle(20, 2, 34);
+		MountainBicycle mountainBicycle  = new MountainBicycle(20, 2, 34);
 //		System.out.println(mountainBicycle);
 //		mountainBicycle.speedUp(2);
 //		mountainBicycle.changeGear(5);
 //		System.out.println(mountainBicycle);
+		speedUpBicycle(mountainBicycle);
 		
-		Bicycle roadBicycle  = new RoadBicycle(20, 1);
+		RoadBicycle roadBicycle  = new RoadBicycle(20, 1);
 //		System.out.println(roadBicycle);
 //		roadBicycle.speedUp(2);
 //		roadBicycle.changeGear(5);
 //		System.out.println(roadBicycle);
+		speedUpBicycle(roadBicycle);
 		
 		
 		Bicycle bicycles[] = { mountainBicycle, roadBicycle};

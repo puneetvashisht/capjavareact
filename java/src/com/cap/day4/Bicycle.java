@@ -9,11 +9,20 @@ public abstract class Bicycle {
 	public Bicycle() {
 		
 	}
-	public Bicycle(int speed, int gear) {
+	
+	public Bicycle(int speed) {
 		super();
 		this.speed = speed;
+	}
+	
+	public Bicycle(int speed, int gear) {
+		this(speed);
+//		super();
+//		this.speed = speed;
 		this.gear = gear;
 	}
+	
+
 	
 	// just declaration
 	public abstract void speedUp(int speed);

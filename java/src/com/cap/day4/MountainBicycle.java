@@ -1,6 +1,6 @@
 package com.cap.day4;
 
-public class MountainBicycle extends Bicycle{
+public class MountainBicycle extends Bicycle implements MotorBycle {
 
 	int suspension;
 	
@@ -22,6 +22,17 @@ public class MountainBicycle extends Bicycle{
 	@Override
 	public void speedUp(int speed) {
 		this.speed += (speed * 2);
+		
+	}
+
+	@Override
+	public void startMotor() {
+		System.out.println("starting motor...");
+	}
+
+	@Override
+	public void stopMotor() {
+		System.out.println("stoping motor...");
 		
 	}
 	

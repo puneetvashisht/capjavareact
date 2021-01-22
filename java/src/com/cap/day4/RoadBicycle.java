@@ -3,7 +3,6 @@ package com.cap.day4;
 public class RoadBicycle extends Bicycle{
 
 	
-	
 	public RoadBicycle() {
 		super();
 	}

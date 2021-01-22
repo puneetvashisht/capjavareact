@@ -8,7 +8,23 @@ public class ArrayDemo {
 		
 
 		//array for primitive types
-//		int scores[] = new int[4];
+		int scores[][] = new int[4][3];
+		
+		scores[0][0] = 34;
+		scores[0][1] = 32;
+		scores[0][2] = 33;
+		
+		scores[1][0] = 36;
+		scores[1][1] = 37;
+		scores[1][2] = 38;
+		
+		
+		for(int s[]: scores) {
+			for(int value : s) {
+				System.out.println(value);
+			}
+		}
+	
 		
 
 		

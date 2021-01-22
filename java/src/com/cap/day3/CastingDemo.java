@@ -14,7 +14,7 @@ public class CastingDemo {
 		
 		// Downcasting
 		// Larger value into a smaller space
-		int age = 29;
+		int age = 129;
 		byte x = (byte)age;
 		
 		

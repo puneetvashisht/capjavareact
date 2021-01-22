@@ -23,6 +23,9 @@ public class EmployeeTest {
 		emp.incrementSalary();
 		
 		System.out.println(emp.getSalary());
+		emp.setSalary(40000);
+		
+//		emp.salary = 40000;
 		
 		Employee emp2 = new Employee(34, "Priya", 34343.33);
 		Employee emp3 = new Employee(2, "Rajat", 44343.33);

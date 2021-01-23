@@ -7,19 +7,18 @@ public class User {
 	private String confirmPassword;
 	
 	private int age;
-	
-	
 
 	
 	public int getAge() {
 		return age;
 	}
 
+	// setters - for optional intializate
 	public void setAge(int age) {
 		this.age = age;
 	}
 
-	//constructors
+	//constructors -- for mandatory initialization
 	public User() {
 		System.out.println("No argument constructor");
 	}
@@ -32,7 +31,15 @@ public class User {
 	
 	
 	
- // Getter & setter
+	
+ public User(String name, String password, String confirmPassword) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+	}
+
+	// Getter & setter
 	public String getName() {
 		return name;
 	}
@@ -61,7 +68,10 @@ public class User {
 //		User user1 = new User("admin", "testtest");
 //		System.out.println(user1);
 //		
+		// login
 //		User user2 = new User("manager", "mngmng");
+		// register
+		User user2 = new User("manager", "mngmng" , "mngmng");
 //		System.out.println(user2.toString());
 		
 		User user3 = new User();

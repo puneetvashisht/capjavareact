@@ -27,7 +27,9 @@ public class User {
 	}
 	
 	//methods
-	public void register() {
+	public void register()throws PasswordsNotMatchException {
+		
+		
 		System.out.println("user registeration...");
 		System.out.println("user email:  " + this.email);
 		
@@ -37,6 +39,14 @@ public class User {
 		}
 		else {
 			System.out.println("user not registered!!");
+			if(!this.email.contains("@")) {
+				throw new InvalidEmailException("Provide a valid email!!");
+			}
+			else if(!this.password.equals(this.confirmPassword)) {
+				throw new PasswordsNotMatchException("Provide same passwords!!");
+			}
+			
+			
 		}
 	}
 	
@@ -60,13 +70,31 @@ public class User {
 		return "User [email=" + email + ", password=" + password + ", confirmPassword=" + confirmPassword + "]";
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
 		User user = new User("test@test.com", "testtest", "testtest");
-		user.register();
+		try {
+			user.register();
+		} 
+		catch (InvalidEmailException e) {
+			e.printStackTrace();
+		}
+		catch (PasswordsNotMatchException e) {
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		finally {
+			System.out.println("always executed for both success/failure");
+		}
 
 		
 		User loginUser = new User("test@test.com","test@test.com");
 		loginUser.login();
+		
+		
+		System.out.println("Allz well.. that ends well!!");
 
 	}
 

@@ -17,11 +17,11 @@ public class Address {
 		
 	}
 	
-	public void changeAddress(Address address) {
-		this.houseNumber = address.houseNumber;
-		this.locality = address.locality;
-		this.city = address.city;
-	}
+//	public void changeAddress(Address address) {
+//		this.houseNumber = address.houseNumber;
+//		this.locality = address.locality;
+//		this.city = address.city;
+//	}
 	
 	public Address(int houseNumber, String locality, String city) {
 		super();

@@ -4,7 +4,10 @@ public class Car extends Vehicle {
 	
 	String color;
 	
-	
+	public void carmethod() {
+//		super.carmethod();
+		System.out.println("car method...");
+	}
 	
 	public Car() {
 		

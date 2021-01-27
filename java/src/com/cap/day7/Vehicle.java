@@ -6,6 +6,15 @@ public abstract class Vehicle {
 	boolean automatic;
 	Engine engine;
 	
+	
+	public void vehiclemethod() {
+		System.out.println("vehicle method...");
+	}
+	
+//	public abstract void carmethod();
+//		System.out.println("car method in vehicle...");
+//	}
+
 	public Vehicle() {
 		
 	}

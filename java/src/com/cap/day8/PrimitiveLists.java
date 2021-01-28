@@ -13,8 +13,8 @@ public class PrimitiveLists {
 //		
 //		// Auto boxing of primitives to wrapper types
 //		int x = 34;
-//		Integer y = new Integer(34);
-//		
+		Integer y = new Integer(34);
+		int z = y;
 //		
 //		Double d = 34.34;
 //		

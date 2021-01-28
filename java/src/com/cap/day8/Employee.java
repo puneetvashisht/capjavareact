@@ -11,7 +11,62 @@ public class Employee implements Comparable<Employee> {
 	public Employee() {
 			
 	}
+	
+	
+	
+	
+//	@Override
+//	public int hashCode() {
+//		return name.hashCode();
+//	}
+//	
+//	@Override
+//	public boolean equals(Object obj) {
+//		Employee e = (Employee) obj;
+//		return (e.name.equals(this.name));
+//	}
+
 		
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((salary == null) ? 0 : salary.hashCode());
+		return result;
+	}
+
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		if (id != other.id)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (salary == null) {
+			if (other.salary != null)
+				return false;
+		} else if (!salary.equals(other.salary))
+			return false;
+		return true;
+	}
+
+
+
+
 	// constructor to initialize id, name, salary
 	public Employee(int id, String name, double salary) {
 		this.id = id;
@@ -27,11 +82,7 @@ public class Employee implements Comparable<Employee> {
 	}
 	
 	
-//	public boolean equals(Object obj) {
-//		Employee e = (Employee) obj;
-//        return (e.id == this.id);
-//   }
-//	
+
 
 	public int getId() {
 		return id;

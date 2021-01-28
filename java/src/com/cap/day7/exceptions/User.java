@@ -7,6 +7,7 @@ public class User {
 	String password;
 	String confirmPassword;
 	
+	
 	static final String country = "India";
 	
 

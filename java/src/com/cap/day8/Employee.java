@@ -4,7 +4,7 @@ public class Employee implements Comparable<Employee> {
 	// Fields
 		private int id;
 		private String name;
-		private double salary;
+		private Double salary;
 		
 	
 	// default/no-arg constructor	
@@ -49,11 +49,11 @@ public class Employee implements Comparable<Employee> {
 		this.name = name;
 	}
 
-	public double getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(double salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 
@@ -66,6 +66,12 @@ public class Employee implements Comparable<Employee> {
 	@Override
 	public int compareTo(Employee e) {
 		return this.id - e.id;
+//		return e.id - this.id;
+//		return this.name.compareTo(e.name);
+//		return (int)(this.salary - e.salary);
+		
+		
+//		return e.salary.compareTo(this.salary);
 //		if(this.id < e.id) {
 //			return -1;
 //		}

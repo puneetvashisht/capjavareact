@@ -17,10 +17,11 @@ public class SortDemo {
 		employees.add(e3);
 		
 		System.out.println(e1.compareTo(e2));
+		System.out.println("b".compareTo("a"));
 		
 		System.out.println(employees);
 		
-		Collections.sort(employees);
+		Collections.sort(employees, new SalaryComparator());
 		
 		System.out.println(employees);
 	}

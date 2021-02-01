@@ -36,6 +36,7 @@ public class Employee implements Comparable<Employee> {
 		result = prime * result + ((salary == null) ? 0 : salary.hashCode());
 		return result;
 	}
+	
 
 
 
@@ -75,7 +76,7 @@ public class Employee implements Comparable<Employee> {
 	}
 	
 	// Methods
-	double incrementSalary() {
+	public double incrementSalary() {
 		this.salary += 5000;
 
 		return salary;

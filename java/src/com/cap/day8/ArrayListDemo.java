@@ -31,6 +31,14 @@ public class ArrayListDemo {
 		}
 		
 		
+		String s ="x";
+		String s1 = s + "y";
+		
+		String s2 = "xy";
+		
+		System.out.println(s1 == s2);
+		
+		
 		
 
 	}

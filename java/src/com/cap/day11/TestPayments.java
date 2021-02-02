@@ -12,12 +12,14 @@ public class TestPayments {
 	
 	public static void main(String[] args) {
 		
+		//old syntax
 		Payment payment = new NEFTPayment();
 		payment.perform();
-		
+		//old syntax
 		Payment payment2 = new RTGSPayment();
 		payment2.perform();
 		
+		//new way
 		// lamda expression must follow the syntax of interface method
 		Payment payment3 = ()-> System.out.println("performing UPI payment");
 		payment3.perform();

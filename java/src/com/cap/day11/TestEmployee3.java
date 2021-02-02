@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.cap.day8.Employee;
 
-//interface Condition{
-//	boolean test(Employee e);
-//}
+interface Condition{
+	boolean test(Employee e);
+}
 class NameStartsWithACondition implements Condition{
 	@Override
 	public boolean test(Employee e) {

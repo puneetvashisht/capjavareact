@@ -1,15 +1,19 @@
 package com.cap.day9.threads;
 
-class RoomBookTask implements Runnable{
+class RoomBookTask implements Runnable {
 
-	int roomsBooked = 0;
-	
-	
-	public synchronized void bookRooms() {
-		for(int i=0; i<1000; i++) {
-			roomsBooked = roomsBooked + 1;
+	Integer roomsBooked = 0;
+	String str = "test";
+
+	public void bookRooms() {
+		synchronized (str) {
+			for (int i = 0; i < 1000; i++) {
+				roomsBooked = roomsBooked + 1;
+			}
 		}
+
 	}
+
 	@Override
 	public void run() {
 		this.bookRooms();
@@ -18,15 +22,14 @@ class RoomBookTask implements Runnable{
 }
 
 public class ThreadDemo4 {
-	
 
 	public static void main(String[] args) throws InterruptedException {
 		RoomBookTask runnable = new RoomBookTask();
-		
-		for(int i=0;i<100000;i++) {
-			
+
+		for (int i = 0; i < 10000; i++) {
+
 			Thread t = new Thread(runnable);
-			t.start();	
+			t.start();
 		}
 		System.out.println(Thread.currentThread().getName());
 		Thread.sleep(2000);

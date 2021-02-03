@@ -51,7 +51,7 @@ public class DateTimeDemo {
 		/*
 		 * You can use direct manipulation methods, or pass a value and field pair
 		 */
-		LocalDateTime yetAnother = thePast.plusWeeks(3).plus(3, ChronoUnit.WEEKS);
+		LocalDateTime yetAnother = thePast.plusWeeks(3).plus(3, ChronoUnit.MONTHS);
 		System.out.println(yetAnother);
 
 		// adding 1 week to the current date

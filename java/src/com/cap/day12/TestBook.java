@@ -26,7 +26,7 @@ public class TestBook {
 		
 
 		
-		boolean anyMatch = books.stream()
+		boolean anyMatch = books.parallelStream()
 		.anyMatch((b) -> b.getRating()> 4.9) ;
 		System.out.println("Any books matching rating > 4.8 " + anyMatch);
 	

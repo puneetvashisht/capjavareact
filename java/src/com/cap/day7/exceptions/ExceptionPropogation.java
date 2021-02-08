@@ -19,21 +19,21 @@ public class ExceptionPropogation {
 	}
 	
 	
-	public static void m1(int value) throws ArithmeticException {
+	public static void m1(int value) throws RuntimeException {
 		System.out.println("Inside m1 value: " + value);
 		m2(value);
 	}
 
 	public static void main(String[] args) {
 		
-		try {
+//		try {
 			m1(0);
-		}
-		catch(ArithmeticException e) {
-			System.out.println("Handling inside main method");
-//			m1(2);
-			
-		}
+//		}
+//		catch(ArithmeticException e) {
+//			System.out.println("Handling inside main method");
+////			m1(2);
+//			
+//		}
 		
 		
 		System.out.println("Alls well.. that ends well");

@@ -21,3 +21,11 @@
         5. Sort books by rating. Hint use terminal function .sorted()
         6. Find book with minimum rating. Hint use .min() instead of .sorted()
         7. Find the maximum rating value in the whole list. No Hints
+
+    Git Important commands
+        git init -- initialize a git repository
+        git add <file-name> -- adds to staging area
+        git commit -m "message" -- adds to commit area with a message
+        git add remote -- connect to github repository
+        git push -- push changes to remote 
+        git pull -- pull change from remote

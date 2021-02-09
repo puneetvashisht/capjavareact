@@ -15,7 +15,7 @@ public abstract class Bicycle implements IBicycle{
 		this.speed = speed;
 	}
 	
-	public Bicycle(int speed, int gear) {
+	protected Bicycle(int speed, int gear) {
 		this(speed);
 //		super();
 //		this.speed = speed;

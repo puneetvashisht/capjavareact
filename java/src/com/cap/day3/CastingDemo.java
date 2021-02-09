@@ -23,7 +23,6 @@ public class CastingDemo {
 		
 		System.out.println(emp);
 		
-		int b1 = (int)343.34;
 
 	}
 

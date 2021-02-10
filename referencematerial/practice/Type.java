@@ -1,0 +1,7 @@
+package practice;
+
+public enum Type {
+	
+	TOOTHBRUSH,BUCKET,SHOES,LUNCHBOX,BREAD,BUTTER,CAKE,PIZZA,BURGER
+
+}

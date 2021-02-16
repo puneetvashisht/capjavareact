@@ -38,8 +38,9 @@ public class UserRepository {
 
 	
 	public User findUserByEmail(String email){
-		TypedQuery<User> query = em.createQuery("select u from User u where u.email = :x", User.class);
+		TypedQuery<User> query = em.createQuery("SELECT u FROM User u where u.email = :x AND u.password = :y", User.class);
 		query.setParameter("x",email);
+		query.setParameter("y","test");
 		User user = query.getSingleResult();
 		return user;
 	}

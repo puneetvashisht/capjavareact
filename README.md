@@ -29,3 +29,10 @@
         git add remote -- connect to github repository
         git push -- push changes to remote 
         git pull -- pull change from remote
+    
+    JPA Steps
+        1. Simple Maven Project
+        2. Add dependencies - hibernate-entitymanager, jdbc drivers
+        3. Entity - @Id, @Entity
+        4. Config file - for specific DB
+        5. Test Case to test the operations on entity

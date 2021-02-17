@@ -1,4 +1,4 @@
-package com.cap.entities.composition;
+package com.cap.entities.inherit;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,16 +56,7 @@ public class EmployeeRepository {
 		tx.commit();
 	}
 	
-	public void addEmployeeAddress(int id, Address tempAddress) {
-		EntityTransaction tx = em.getTransaction();
-		tx.begin();
-		Employee ef = em.find(Employee.class, id);
-		ef.getAddresses().add(tempAddress);
-		
-//		ef.setAddresses();
-		
-		tx.commit();
-	}
+	
 	
 	public List<Employee> findAllEmployees(){
 		TypedQuery<Employee> query = em.createQuery("select e from Employee e where e.salary > :x", Employee.class);
@@ -77,14 +68,15 @@ public class EmployeeRepository {
 	public static void main(String[] args) {
 		
 		EmployeeRepository repo = new EmployeeRepository();
-		Address address = new Address(23, "GK", "New Delhi");
-		Address officialAddress = new Address(233, "Noida", "UP");
-		List<Address> addresses = new ArrayList<>();
-		addresses.add(address);
-		addresses.add(officialAddress);
 		
-//		Employee e = new Employee("Ravi", 43433.34, addresses);
-//		repo.addEmployee(e);
+		Employee e = new Employee("Basic");
+		repo.addEmployee(e);
+		
+		Employee e2 = new RegularEmployee("Priya", 33443.34, 3);
+		repo.addEmployee(e2);
+		
+		Employee e1 = new ContractEmployee("Ravi", 1000.00);
+		repo.addEmployee(e1);
 		
 //		Employee foundEmployee = repo.findEmployee(1);
 //		System.out.println(foundEmployee);
@@ -97,7 +89,7 @@ public class EmployeeRepository {
 		
 //		repo.updateEmployee(1);
 		
-		repo.addEmployeeAddress(1, new Address(23, "temp-location", "temp-city"));
+//		repo.addEmployeeAddress(1, new Address(23, "temp-location", "temp-city"));
 		
 		
 	}

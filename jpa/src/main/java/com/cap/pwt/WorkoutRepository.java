@@ -47,6 +47,6 @@ public class WorkoutRepository {
 	
 	//	 add, findAll, edit(change name) and delete a category 
 	
-	
+	// update workout -- change title, note, cbpm
 	
 }

@@ -15,21 +15,23 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int id;
-	
+	@Column(unique = true, nullable = false)
 	String email;
 	@Column(name="PWD")
 	String password;
+	boolean active;
 	@Transient
 	String confirmPassword;
 	
 	public User() {
 		
 	}
-	public User(String email, String password, String confirmPassword) {
+	public User(String email, String password, String confirmPassword, boolean active) {
 		super();
 		this.email = email;
 		this.password = password;
 		this.confirmPassword = confirmPassword;
+		this.active = active;
 	}
 	@Override
 	public String toString() {

@@ -30,13 +30,16 @@ public class UserRepository {
 	
 	
 	public void addUser(User e) {
+		//User password validation logic
+		
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(e);
 		tx.commit();
 	}
 
-	
+
+	// MIN, MAX, SUM, OR
 	public User findUserByEmail(String email){
 		TypedQuery<User> query = em.createQuery("SELECT u FROM User u where u.email = :x AND u.password = :y", User.class);
 		query.setParameter("x",email);
@@ -49,11 +52,11 @@ public class UserRepository {
 		
 		UserRepository repo = new UserRepository();
 
-//		User user = new User("test2@test.com", "test", "test");
-//		repo.addUser(user);
+		User user = new User("test4@test.com", "test", "test", true);
+		repo.addUser(user);
 		
-		User foundUser = repo.findUserByEmail("test2@test.com");
-		System.out.println(foundUser);
+//		User foundUser = repo.findUserByEmail("test2@test.com");
+//		System.out.println(foundUser);
 		
 		
 	}

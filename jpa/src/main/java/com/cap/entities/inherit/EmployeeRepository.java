@@ -59,8 +59,21 @@ public class EmployeeRepository {
 	
 	
 	public List<Employee> findAllEmployees(){
-		TypedQuery<Employee> query = em.createQuery("select e from Employee e where e.salary > :x", Employee.class);
-		query.setParameter("x", 40000.0);
+		
+		// HQL - Hibernate Query Language
+		TypedQuery<Employee> query = em.createNamedQuery("selectAllEmployee",Employee.class);
+//		TypedQuery<Employee> query = em.createQuery("select e from Employee e where e.salary > :x", Employee.class);
+//		query.setParameter("x", 20000.0);
+		List<Employee> employees = query.getResultList();
+		return employees;
+	}
+	
+public List<Employee> findAllEmployeesWithSalaries(double salary){
+		
+		// HQL - Hibernate Query Language
+	TypedQuery<Employee> query = em.createNamedQuery("selectAllEmployee",Employee.class);
+//		TypedQuery<Employee> query = em.createQuery("select e from Employee e where e.salary > :x", Employee.class);
+//		query.setParameter("x", salary);
 		List<Employee> employees = query.getResultList();
 		return employees;
 	}
@@ -69,21 +82,23 @@ public class EmployeeRepository {
 		
 		EmployeeRepository repo = new EmployeeRepository();
 		
-		Employee e = new Employee("Basic");
-		repo.addEmployee(e);
-		
-		Employee e2 = new RegularEmployee("Priya", 33443.34, 3);
-		repo.addEmployee(e2);
-		
-		Employee e1 = new ContractEmployee("Ravi", 1000.00);
-		repo.addEmployee(e1);
+//		Employee e = new Employee("Basic");
+//		repo.addEmployee(e);
+//		
+//		Employee e2 = new RegularEmployee("Priya", 33443.34, 3);
+//		repo.addEmployee(e2);
+//		
+//		Employee e1 = new ContractEmployee("Ravi", 1000.00);
+//		repo.addEmployee(e1);
 		
 //		Employee foundEmployee = repo.findEmployee(1);
 //		System.out.println(foundEmployee);
 		
 //		
-//		List<Employee> employees = repo.findAllEmployees();
-//		System.out.println(employees);
+		List<Employee> employees = repo.findAllEmployees();
+//		List<Employee> employees = repo.findAllEmployeesWithSalaries(25000.00);
+		
+		System.out.println(employees);
 		
 //		repo.deleteEmployee(4);
 		

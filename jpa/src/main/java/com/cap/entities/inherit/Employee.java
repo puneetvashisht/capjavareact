@@ -6,9 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQueries(@NamedQuery(name = "selectAllEmployee", query = "select e from Employee e"))
+
 public class Employee {
 	
 	@Id

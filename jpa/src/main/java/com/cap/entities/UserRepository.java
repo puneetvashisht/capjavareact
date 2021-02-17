@@ -35,7 +35,28 @@ public class UserRepository {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(e);
+		// Managed State
+		
 		tx.commit();
+		// Detached state
+		e.setPassword("admin");
+		
+	}
+	
+	public User findUser(int id) {
+		// starting a transactions
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		User user = em.find(User.class, id);
+		user.setPassword("test");
+		
+		// commit transaction
+		tx.commit();
+		em.close();
+		// Detached state
+		
+		return user;
 	}
 
 
@@ -52,10 +73,12 @@ public class UserRepository {
 		
 		UserRepository repo = new UserRepository();
 
-		User user = new User("test4@test.com", "test", "test", true);
+		User user = new User("test2@test.com", "test", "test", true);
 		repo.addUser(user);
 		
 //		User foundUser = repo.findUserByEmail("test2@test.com");
+		
+//		User foundUser = repo.findUser(4);
 //		System.out.println(foundUser);
 		
 		

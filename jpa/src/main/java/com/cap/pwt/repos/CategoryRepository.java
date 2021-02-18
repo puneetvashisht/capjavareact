@@ -26,6 +26,12 @@ public class CategoryRepository {
 		em.persist(category);
 		tx.commit();
 	}
+	
+	public Category findCategoryByName(String categoryName) {	
+		TypedQuery<Category> query = em.createQuery("select c from Category c where c.name=:name", Category.class);
+		query.setParameter("name", categoryName);
+		return query.getSingleResult();
+	}
 
 	// delete a specific workout but .. do not delete the category itself
 	public void deleteCategory(int i) {

@@ -1,5 +1,7 @@
 package com.cap.pwt.repos;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -60,7 +62,19 @@ public class WorkoutRepository {
 	
 	// find all workouts inside a specific category
 	
-	
+	public List<Workout> findWorkoutByCategory(String categoryName){
+		
+		// Find the category to fetch ID
+		CategoryRepository categoryRepo = new CategoryRepository();
+		Category c = categoryRepo.findCategoryByName(categoryName);
+		
+		
+		// Find workouts using ID
+		TypedQuery<Workout> query = em.createQuery("select w from Workout w where category.id=:id", Workout.class);
+		query.setParameter("id", c.getId());
+		return query.getResultList();
+		
+	}
 	
 	
 	

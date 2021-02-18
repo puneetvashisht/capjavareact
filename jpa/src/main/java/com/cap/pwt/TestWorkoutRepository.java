@@ -1,5 +1,7 @@
 package com.cap.pwt;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +17,7 @@ public class TestWorkoutRepository {
 	public void setUp() {
 		workoutRepository = new WorkoutRepository();
 	}
-	@Test
+//	@Test
 	public void testDeleteWorkout() {
 		workoutRepository.deleteWorkout(1);
 	}
@@ -23,9 +25,16 @@ public class TestWorkoutRepository {
 //	@Test
 	public void testAddWorkout() {
 		Category category = new Category("Strenth");
-		Workout workout = new Workout("Dumbell Workout", category, 150);
+//		Workout workout = new Workout("Dumbell Workout", category, 150);
+		Workout workout = new Workout("Triceps workout", category, 250);
 		
 		workoutRepository.addWorkout(workout);
+	}
+	
+	@Test
+	public void testFindWorkoutsByCategoryName() {
+		List<Workout> workouts = workoutRepository.findWorkoutByCategory("Strenth");
+		System.out.println(workouts);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.cap.entities.UserRepository;
 import com.cap.pwt.entities.Category;
 import com.cap.pwt.entities.Workout;
 import com.cap.pwt.repos.WorkoutRepository;
@@ -35,6 +36,18 @@ public class TestWorkoutRepository {
 	public void testFindWorkoutsByCategoryName() {
 		List<Workout> workouts = workoutRepository.findWorkoutByCategory("Strenth");
 		System.out.println(workouts);
+	}
+	
+	@Test
+	public void assignWorkoutToUser() {
+		String workoutTitle = "Triceps workout";
+		String email = "test@test.com";
+		
+		
+		
+		workoutRepository.assignWorkoutToUser(email, workoutTitle);
+		
+		
 	}
 
 }

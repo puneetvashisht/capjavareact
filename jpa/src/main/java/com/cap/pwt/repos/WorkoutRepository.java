@@ -9,8 +9,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import com.cap.entities.UserRepository;
 import com.cap.pwt.entities.Category;
 import com.cap.pwt.entities.Workout;
+import com.cap.pwt.entities.WorkoutActive;
 
 public class WorkoutRepository {
 	/* Create EntityManagerFactory */
@@ -87,6 +89,23 @@ public class WorkoutRepository {
 		w.setTitle(title);
 		tx.commit();
 		
+	}
+
+
+	public void assignWorkoutToUser(String email, String workoutTitle) {
+		
+		// Find User and Workout from email, workouttitle respectively
+//		User user = UserRepository.findUser(email);
+//		Workout workout = this.findWorkoutWithTitle(workoutTitle);
+		
+		// Construct workoutActive object
+//		WorkoutActive workoutActive = new WorkoutActive(workout.getTitle(), workout.getCaloriesBurntPerMinute(), user, null, null);
+		
+		// Persist the object in db
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+//		em.persist(workoutActive);
+		tx.commit();
 	}
 	
 }

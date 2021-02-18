@@ -1,5 +1,6 @@
 package com.cap.pwt.repos;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,8 +10,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import com.cap.entities.UserRepository;
 import com.cap.pwt.entities.Category;
+import com.cap.pwt.entities.User;
 import com.cap.pwt.entities.Workout;
 import com.cap.pwt.entities.WorkoutActive;
 
@@ -78,6 +79,14 @@ public class WorkoutRepository {
 		
 	}
 	
+	public Workout findWorkoutByTitle(String title){
+		// Find workouts using ID
+		TypedQuery<Workout> query = em.createQuery("select w from Workout w where w.title=:title", Workout.class);
+		query.setParameter("title", title);
+		return query.getSingleResult();
+		
+	}
+	
 	
 	
 	// update workout -- change title, note, cbpm
@@ -94,18 +103,36 @@ public class WorkoutRepository {
 
 	public void assignWorkoutToUser(String email, String workoutTitle) {
 		
+		// Persist the object in db
+				EntityTransaction tx = em.getTransaction();
+				tx.begin();
 		// Find User and Workout from email, workouttitle respectively
-//		User user = UserRepository.findUser(email);
-//		Workout workout = this.findWorkoutWithTitle(workoutTitle);
-		
+		UserRepository userRepository = new UserRepository();
+		User user = userRepository.findUser(email);
+		System.out.println(user);
+		Workout workout = this.findWorkoutByTitle(workoutTitle);
+		System.out.println(workout);
 		// Construct workoutActive object
-//		WorkoutActive workoutActive = new WorkoutActive(workout.getTitle(), workout.getCaloriesBurntPerMinute(), user, null, null);
+//		user
+		User newUser = new User(user.getEmail(), user.getPassword());
+		WorkoutActive workoutActive = new WorkoutActive(workout.getTitle(), workout.getCaloriesBurntPerMinute(), newUser, null, null);
 		
+		
+		em.persist(workoutActive);
+		tx.commit();
+	}
+
+
+	public void testStartActiveWorkout(int id) {
 		// Persist the object in db
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-//		em.persist(workoutActive);
+		
+		WorkoutActive workoutActive = em.find(WorkoutActive.class, id);
+		workoutActive.setStartTime(LocalDateTime.now());
+		
 		tx.commit();
+		
 	}
 	
 }

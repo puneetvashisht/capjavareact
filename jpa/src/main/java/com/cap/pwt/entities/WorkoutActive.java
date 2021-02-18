@@ -3,11 +3,13 @@ package com.cap.pwt.entities;
 import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class WorkoutActive {
 	
 	@Id
@@ -20,7 +22,21 @@ public class WorkoutActive {
 	LocalDateTime startTime;
 	LocalDateTime endTime;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	
+	
+	public LocalDateTime getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(LocalDateTime startTime) {
+		this.startTime = startTime;
+	}
+	public LocalDateTime getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(LocalDateTime endTime) {
+		this.endTime = endTime;
+	}
+	@ManyToOne(cascade = CascadeType.ALL)
 	User user;
 	
 	

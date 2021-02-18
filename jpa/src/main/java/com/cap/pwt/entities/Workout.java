@@ -1,4 +1,4 @@
-package com.cap.pwt;
+package com.cap.pwt.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +14,7 @@ public class Workout {
 	int id;
 	String title;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	Category category;
 	
 	int caloriesBurntPerMinute;

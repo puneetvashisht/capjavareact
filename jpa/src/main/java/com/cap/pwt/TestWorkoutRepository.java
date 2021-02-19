@@ -48,7 +48,7 @@ public class TestWorkoutRepository {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testStartActiveWorkout() {
 		int id = 5;
 		workoutRepository.testStartActiveWorkout(id);
@@ -61,6 +61,13 @@ public class TestWorkoutRepository {
 		User user  = new User("test@test.com", "test");
 		UserRepository repository = new  UserRepository();
 		repository.addUser(user);
+	}
+	
+	@Test
+	public void updateUserPassword() {
+		
+		UserRepository repository = new  UserRepository();
+		repository.updateUserPassword(1, "test");
 	}
 
 }

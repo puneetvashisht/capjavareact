@@ -65,16 +65,10 @@ public class EmployeeRepository {
 	public static void main(String[] args) {
 		
 		EmployeeRepository repo = new EmployeeRepository();
-//		Employee e = new Employee("Priya", 43433.34);
-//		repo.addEmployee(e);
+		Employee e = new Employee("Priya", 43433.34);
+		repo.addEmployee(e);
 		
-//		Employee foundEmployee = repo.findEmployee(3);
-//		System.out.println(foundEmployee);
-		
-		
-		List<Employee> employees = repo.findAllEmployees();
-		System.out.println(employees);
-		
+
 		
 	}
 

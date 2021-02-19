@@ -4,12 +4,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-//@Entity
+@Entity
 public class Employee {
 	
 	@Id
@@ -18,11 +19,18 @@ public class Employee {
 	String name;
 	double salary;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL,  mappedBy = "employee", fetch = FetchType.LAZY)
 	List<Address> addresses;
+	
 	
 	public Employee() {
 		
+	}
+	
+	public Employee(String name, double salary) {
+		super();
+		this.name = name;
+		this.salary = salary;
 	}
 	public Employee(String name, double salary, List<Address> addresses) {
 		super();
@@ -53,7 +61,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", addresses=" + addresses + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary  + "]";
 	}
 	
 	

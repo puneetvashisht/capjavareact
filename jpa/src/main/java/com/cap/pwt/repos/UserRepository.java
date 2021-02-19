@@ -30,4 +30,19 @@ public class UserRepository {
 		tx.commit();
 	}
 
+	public void updateUserPassword(int id, String newPassword) {
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		User user = em.find(User.class, id);
+		
+		tx.commit();
+		// detached
+		
+		tx.begin();
+		em.merge(user);
+		user.setPassword(newPassword);
+		tx.commit();
+		
+	}
+
 }

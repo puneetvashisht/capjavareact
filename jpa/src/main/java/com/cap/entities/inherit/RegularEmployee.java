@@ -2,7 +2,7 @@ package com.cap.entities.inherit;
 
 import javax.persistence.Entity;
 
-@Entity
+//@Entity
 public class RegularEmployee extends Employee {
 	
 	double salary;

@@ -9,8 +9,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
 @NamedQueries(@NamedQuery(name = "selectAllEmployee", query = "select e from Employee e"))
 
 public class Employee {

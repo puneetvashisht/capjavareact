@@ -29,13 +29,31 @@ public class EmployeeRepository {
 	//Named Queries - HQL
 	
 	public Employee findEmployee(int id) {
-		return em.find(Employee.class, id);
+		Employee e = em.find(Employee.class, id);
+		System.out.println(e);
+//		
+		
+		
+		em.close();
+		
+		
+		
+		System.out.println(e.getAddresses());
+		return e;
 	}
 	
 	public void addEmployee(Employee e) {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(e);
+		tx.commit();
+	}
+	
+	
+	public void addAddress(Address a) {
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		em.persist(a);
 		tx.commit();
 	}
 	
@@ -74,20 +92,33 @@ public class EmployeeRepository {
 		return employees;
 	}
 	
+	
+	
+	
 	public static void main(String[] args) {
 		
-		EmployeeRepository repo = new EmployeeRepository();
+		EmployeeRepository repo =  new EmployeeRepository();
+		
 		Address address = new Address(23, "GK", "New Delhi");
 		Address officialAddress = new Address(233, "Noida", "UP");
 		List<Address> addresses = new ArrayList<>();
 		addresses.add(address);
 		addresses.add(officialAddress);
 		
-//		Employee e = new Employee("Ravi", 43433.34, addresses);
+		Employee e = new Employee("Ravi", 43433.34, addresses);
+		
+		// two-way
+		address.setEmployee(e);
+		officialAddress.setEmployee(e);
+	
+		
+//		repo.addAddress(officialAddress);
 //		repo.addEmployee(e);
 		
-//		Employee foundEmployee = repo.findEmployee(1);
-//		System.out.println(foundEmployee);
+		Employee foundEmployee = repo.findEmployee(2);
+		System.out.println(foundEmployee);
+	
+		
 		
 //		
 //		List<Employee> employees = repo.findAllEmployees();
@@ -97,7 +128,7 @@ public class EmployeeRepository {
 		
 //		repo.updateEmployee(1);
 		
-		repo.addEmployeeAddress(1, new Address(23, "temp-location", "temp-city"));
+//		repo.addEmployeeAddress(1, new Address(23, "temp-location", "temp-city"));
 		
 		
 	}

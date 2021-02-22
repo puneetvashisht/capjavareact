@@ -11,9 +11,9 @@ public class TestDeps {
 		// spring specific code 
 		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 		// get instance from spring
-		A a = context.getBean(A.class);
-		
-		a.execute();
+//		A a = context.getBean(A.class);
+//		
+//		a.execute();
 		
 		System.out.println(" _ ___ __------- ___ __ _");
 		

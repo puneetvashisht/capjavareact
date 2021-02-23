@@ -45,7 +45,7 @@ public class TestWorkoutRepository {
 		System.out.println(workouts);
 	}
 	
-	@Test
+//	@Test
 	public void assignWorkoutToUser() {
 		String workoutTitle = "Triceps workout";
 		String email = "test@test.com";
@@ -54,9 +54,9 @@ public class TestWorkoutRepository {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testStartActiveWorkout() {
-		int id = 5;
+		int id = 4;
 		workoutRepository.testStartActiveWorkout(id);
 	}
 	

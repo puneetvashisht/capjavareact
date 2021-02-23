@@ -14,6 +14,9 @@ public class A {
 //	}
 	
 	
+	public void setup() {
+		System.out.println("Initialization code in A...");
+	}
 	
 	
 	public void execute() {

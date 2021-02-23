@@ -2,20 +2,34 @@ package com.cap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 @Scope("singleton")
 public class WorkoutRepository {
 	
-	@Autowired
+	
 	UserRepository userRepository;
 	
 	
-//	public WorkoutRepository(UserRepository userRepository) {
-//		this.userRepository = userRepository;
+//	@PostConstruct
+//	public void setUp() {
+//		System.out.println("Initialization code ...");
 //	}
+		
+	@Autowired
+	public WorkoutRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
 	
+	
+	
+	public void setUserRepository(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+
+
 	public void assignWorkoutToUser() {
 		
 		userRepository.findUserById();

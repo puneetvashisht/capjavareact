@@ -1,8 +1,8 @@
 package com.cap;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class UserRepository {
 	
 	public void findUserById() {

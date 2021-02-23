@@ -22,6 +22,9 @@ public class TestWorkoutRepository {
 	@Autowired
 	WorkoutRepository workoutRepository;
 	
+	@Autowired
+	UserRepository repository;
+	
 	
 //	@Test
 	public void testDeleteWorkout() {
@@ -42,7 +45,7 @@ public class TestWorkoutRepository {
 		System.out.println(workouts);
 	}
 	
-//	@Test
+	@Test
 	public void assignWorkoutToUser() {
 		String workoutTitle = "Triceps workout";
 		String email = "test@test.com";
@@ -59,17 +62,14 @@ public class TestWorkoutRepository {
 	
 	
 	
-	@Test
+//	@Test
 	public void addUser() {
 		User user  = new User("test@test.com", "test");
-		UserRepository repository = new  UserRepository();
 		repository.addUser(user);
 	}
 	
 //	@Test
 	public void updateUserPassword() {
-		
-		UserRepository repository = new  UserRepository();
 		repository.updateUserPassword(1, "test");
 	}
 

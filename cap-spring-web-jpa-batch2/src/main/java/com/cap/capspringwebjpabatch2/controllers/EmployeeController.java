@@ -6,11 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cap.capspringwebjpabatch2.entities.Employee;
@@ -25,7 +27,8 @@ public class EmployeeController {
 	EmployeeRepository employeeRepository;
 	
 	
-	@PostMapping("/employees")
+//	@PostMapping("/employees")
+	@RequestMapping(value="/employees" , method = RequestMethod.POST)
 	public ResponseEntity<Void> addEmployee(@RequestBody Employee e) {
 		ResponseEntity<Void>  re;
 		
@@ -36,17 +39,39 @@ public class EmployeeController {
 		}
 		else {
 //			re = new ResponseEntity<>(HttpStatus.CONFLICT);
-			throw new EmployeeNotFoundException("Employee not foudn with id : " +  e.getId());
+			throw new EmployeeAlreadyExistsException("Employee not foudn with id : " +  e.getId());
 		}
 		
 		return re;
 	}
 	
-	@GetMapping("/employees")
+	
+	@RequestMapping(value="/employees" , method = RequestMethod.PUT)
+	@Transactional
+	public ResponseEntity<Void> updateEmployee(@RequestBody Employee e) {
+		ResponseEntity<Void>  re;
+		
+		Employee emp = employeeRepository.findByName(e.getName());
+		emp.setSalary(e.getSalary());
+		re = new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+		return re;
+	}
+	
+//	@GetMapping("/employees")
+	@RequestMapping(value="/employees" , method = RequestMethod.GET)
 	public List<Employee> findAllEmployees(){
 		System.out.println("Method mapped to Http....");
 		return employeeRepository.findAll();
+		
+		// Interoperable data format 
+		// { name: "Ravi", salary: 34343.34} 
+		// <employee>
+//				<name>Ravi</name>
+//				<salary>34343.34</salary>
+//			</employee>
 	}
+	
+	
 	
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> findEmployee(@PathVariable("id") int id) {

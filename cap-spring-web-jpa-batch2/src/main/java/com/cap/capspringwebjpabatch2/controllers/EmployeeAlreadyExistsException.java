@@ -4,13 +4,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.CONFLICT)
-public class EmployeeNotFoundException extends RuntimeException {
+public class EmployeeAlreadyExistsException extends RuntimeException {
 	
-	public EmployeeNotFoundException() {
+	public EmployeeAlreadyExistsException() {
 		
 	}
 	
-	public EmployeeNotFoundException(String message) {
+	public EmployeeAlreadyExistsException(String message) {
 		super(message);
 	}
 

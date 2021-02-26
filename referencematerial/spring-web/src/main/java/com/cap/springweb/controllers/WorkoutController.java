@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ import com.cap.springweb.exceptions.WorkoutNotFoundException;
 import com.cap.springweb.repos.WorkoutRepository;
 
 @RestController
+@RequestMapping(path = "/api/v1/workouts")
 public class WorkoutController {
 
 	@Autowired
@@ -31,7 +33,7 @@ public class WorkoutController {
 	@Autowired
 	CategoryController categoryController;
 	
-	@PostMapping("/workouts")
+	@PostMapping("/")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void addWorkout(@RequestBody Workout w)
 	{
@@ -49,8 +51,8 @@ public class WorkoutController {
 			
 	}
 	
-	@GetMapping("/workouts/{id}")
-	@ResponseStatus(code = HttpStatus.FOUND)
+	@GetMapping("/{id}")
+	@ResponseStatus(code = HttpStatus.OK)
 	public Workout findWorkout(@PathVariable("id") int id)
 	{
 		Optional<Workout> workout = workoutRepository.findById(id);
@@ -61,8 +63,8 @@ public class WorkoutController {
 		return workout.get();
 	}
 	
-	@GetMapping("/workouts")
-	@ResponseStatus(code = HttpStatus.FOUND)
+	@GetMapping("/")
+	@ResponseStatus(code = HttpStatus.OK)
 	public List<Workout> findAllWorkouts()
 	{
 		List<Workout> list = workoutRepository.findAll();
@@ -73,8 +75,8 @@ public class WorkoutController {
 		return list;
 	}
 	
-	@GetMapping("/workouts/category/{name}")
-	@ResponseStatus(code = HttpStatus.FOUND)
+	@GetMapping("/category/{name}")
+	@ResponseStatus(code = HttpStatus.OK)
 	public List<Workout> findAllWorkoutsWithCategory(@PathVariable("name") String categoryName)
 	{
 		Category category = categoryController.findCategoryByName(categoryName);
@@ -87,7 +89,7 @@ public class WorkoutController {
 		return list;
 	}
 	
-	@PutMapping("/workouts")
+	@PutMapping("/")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	@Transactional
 	public void updateWorkout(@RequestBody Workout workout)
@@ -98,7 +100,7 @@ public class WorkoutController {
 		w.setCaloriesBurntPerMinute(workout.getCaloriesBurntPerMinute());
 	}
 	
-	@DeleteMapping("/workouts/{id}")
+	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteWorkout(@PathVariable("id") int id)
 	{

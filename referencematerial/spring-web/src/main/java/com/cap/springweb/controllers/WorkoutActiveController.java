@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cap.springweb.entities.User;
-import com.cap.springweb.entities.Workout;
 import com.cap.springweb.entities.WorkoutActive;
 import com.cap.springweb.exceptions.WorkoutActiveNotFoundException;
 import com.cap.springweb.repos.WorkoutActiveRepository;
+import com.cap.springweb.services.WorkoutActiveService;
 
 @RestController
 public class WorkoutActiveController {
@@ -35,17 +34,22 @@ public class WorkoutActiveController {
 	@Autowired
 	UserController userController;
 	
+	@Autowired
+	WorkoutActiveService workoutActiveService;
+	
 	@PostMapping("/workoutActives")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void addWorkoutActive(@RequestBody WorkoutActive wa)
 	{
-		Workout w = workoutController.findWorkout(wa.getWorkout().getId());
-		User u = userController.findUser(wa.getUser().getId());
+		workoutActiveService.addWorkoutActive(wa);
 		
-		wa.setWorkout(w);
-		wa.setUser(u);
-		
-		waRepository.save(wa);
+//		Workout w = workoutController.findWorkout(wa.getWorkout().getId());
+//		User u = userController.findUser(wa.getUser().getId());
+//		
+//		wa.setWorkout(w);
+//		wa.setUser(u);
+//		
+//		waRepository.save(wa);
 	}
 	
 	@GetMapping("/workoutActives/{id}")

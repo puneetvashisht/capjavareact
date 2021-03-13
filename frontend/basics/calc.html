@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Calc</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.css"/>
+</head>
+
+<body>
+
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Operand 1</span>
+        </div>
+        <input id="oper1" type="number" class="form-control" placeholder="Enter Operand 1" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Operand 2</span>
+        </div>
+        <input id="oper2" type="number" class="form-control" placeholder="Enter Operand 2" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+
+    <button class="btn btn-primary" onclick="sum()"> + </button>
+    <button class="btn btn-primary" onclick="sub()"> - </button>
+
+
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong id="result"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+
+    
+       
+    </div>
+
+
+    <script>
+        var oper1, oper2 = 0;
+
+        function readValue() {
+            oper1 = document.getElementById('oper1').value
+            oper2 = document.getElementById('oper2').value
+        }
+        function sum() {
+            readValue();
+            var result = parseInt(oper1) + parseInt(oper2);
+            document.getElementById('result').innerText = result
+
+        }
+        function sub() {
+
+            //    var oper1 =  document.getElementById('oper1').value
+            //    var oper2 =  document.getElementById('oper2').value
+            readValue();
+            var result = parseInt(oper1) - parseInt(oper2)
+
+            document.getElementById('result').innerText = result
+
+        }
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

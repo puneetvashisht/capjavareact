@@ -7,10 +7,28 @@
     <div class="card" style="width: 18rem;">
         <img src="https://via.placeholder.com/150X250/0000FF/808080?Text=User Image" class="card-img-top" alt="Not found">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title" id="name">Card title</h5>
+          <p class="card-text" id="salary">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button  class="btn btn-primary" onclick="loadData()">Load Data</button>
         </div>
       </div>
+
+
+  <script>
+   
+    function loadData(){
+        $.ajax({url: "http://localhost:8080/api/employees/6", 
+            success: function(result){
+            console.log(result.name)
+            $("#name").text(result.name)
+            $("#salary").text(result.salary)
+            }
+    });
+    }
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+      
 </body>
 </html>

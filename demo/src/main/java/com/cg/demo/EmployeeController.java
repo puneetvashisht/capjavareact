@@ -1,6 +1,7 @@
 package com.cg.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -81,6 +82,16 @@ public class EmployeeController {
 	@GetMapping("/")
 	public List<Employee> fetchAllEmployees(){
 		return employeeRepo.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Employee fetchEmployeeById(@PathVariable("id")int id){
+		Optional<Employee> employee =  employeeRepo.findById(id);
+		if(employee.isPresent()) {
+			return employee.get();
+			
+		}
+		return null;
 	}
 	
 	

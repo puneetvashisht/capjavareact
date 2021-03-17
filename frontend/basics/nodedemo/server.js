@@ -28,6 +28,14 @@ app.get('/employees', (req, res) => {
     res.json(employees);
 })
 
+app.delete('/employees/:index',(req, res) => {
+    console.log(req.params)
+    console.log(req.params.index)
+    employees.splice(req.params.index, 1);
+    res.json(employees);
+})
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

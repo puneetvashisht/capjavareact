@@ -2,23 +2,47 @@
 import AddEmployee from './AddEmployee';
 import './App.css';
 import ViewEmployee from './ViewEmployee';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
 
 
 
   return (
-    <div className="container">
+
+    <Router>
+      <div>
+        <ul>
+          <li>
+            
+            <Link to="/">View Employees</Link>
+          </li>
+          <li>
+         
+            <Link to="/add">Add Employee</Link>
+          </li>
     
+        </ul>
 
+        <hr />
 
-      <AddEmployee></AddEmployee>
-      <hr/>
-        <ViewEmployee></ViewEmployee>
+        <Switch>
+          <Route exact path="/">
+            <ViewEmployee />
+          </Route>
+          <Route path="/add">
+            <AddEmployee />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
 
-    
-      
-    </div>
   );
 }
 

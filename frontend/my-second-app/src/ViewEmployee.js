@@ -62,7 +62,7 @@ export default class ViewEmployee extends Component {
 
 
         return (
-            <div>
+            <div class="row">
                 <div className="alert alert-success" role="alert">
                     {this.state.message}
                 </div>

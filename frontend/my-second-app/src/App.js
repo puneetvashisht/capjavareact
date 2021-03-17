@@ -1,4 +1,5 @@
 
+import AddEmployee from './AddEmployee';
 import './App.css';
 import ViewEmployee from './ViewEmployee';
 
@@ -8,11 +9,14 @@ function App() {
 
   return (
     <div className="container">
-      <div className="row">
+    
 
+
+      <AddEmployee></AddEmployee>
+      <hr/>
         <ViewEmployee></ViewEmployee>
 
-      </div>
+    
       
     </div>
   );

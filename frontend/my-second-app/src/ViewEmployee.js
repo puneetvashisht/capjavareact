@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import {
+    Link
+  } from "react-router-dom";
 
 // const employees = [
 //     {id: 3, name: "Ravi", salary: 34343.34},
@@ -53,9 +55,10 @@ export default class ViewEmployee extends Component {
             return (
                     <tr key={i}>
                         <th scope="row">{i + 1}</th>
-                        <td>{employee.name}</td>
+                        <td><Link to={"/detailview/" + employee.id}>{employee.name}</Link> </td>
                         <td>{employee.salary}</td>
-                        <td><button type="button" className="btn btn-danger" onClick={this.deleteEmployee.bind(this, employee.id)}> X </button></td>
+                        <td><button type="button" className="btn btn-danger" onClick={this.deleteEmployee.bind(this, employee.id)}> X </button>
+                        <Link to={"/update/" + employee.id}><button type="button" className="btn btn-warning">Edit</button></Link></td>
                     </tr>
             )
         })

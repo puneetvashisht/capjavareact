@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -78,6 +79,20 @@ public class EmployeeController {
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void add(@RequestBody Employee employee) {
 		employeeRepo.save(employee);
+//		return new Message("Employee successfully inserted!!");
+		
+	}
+	
+	@PutMapping("/")
+	@ResponseStatus(code = HttpStatus.CREATED)
+	public void update(@RequestBody Employee employee) {
+//		Employee emp = employeeRepo.findById(employee.id);
+//		emp.setName(employee.name);
+//		emp.setSalary(employee.salary);
+		
+		employeeRepo.save(employee);
+		
+//		employeeRepo.save(employee);
 //		return new Message("Employee successfully inserted!!");
 		
 	}

@@ -8,6 +8,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import UpdateEmployee from './UpdateEmployee';
+import DetailViewEmployee from './DetailViewEmpoyee';
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
           <Route path="/add">
             <AddEmployee />
           </Route>
+          <Route path="/update/:id" component={UpdateEmployee} />
+          <Route path="/detailview/:id" component={DetailViewEmployee} />
         </Switch>
       </div>
     </Router>

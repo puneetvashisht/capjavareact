@@ -1,9 +1,14 @@
 package com.cg.demo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Employee {
@@ -13,6 +18,9 @@ public class Employee {
 	int id;
 	String name;
 	Double salary;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	List<Address> addresses;
 	
 	public int getId() {
 		return id;
@@ -31,6 +39,15 @@ public class Employee {
 	}
 	public void setSalary(Double salary) {
 		this.salary = salary;
+	}
+	
+	
+	
+	public List<Address> getAddresses() {
+		return addresses;
+	}
+	public void setAddresses(List<Address> addresses) {
+		this.addresses = addresses;
 	}
 	@Override
 	public String toString() {

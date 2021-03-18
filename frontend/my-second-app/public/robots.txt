@@ -1,3 +1,36 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+
+Java
+Servlets
+EJB
+Web services
+
+Spring
+Hibernate/JPA
+Spring Cloud
+
+HTML, CSS
+JS
+JQuery
+Bootstrap
+DOJO, ExtJS, Jquery UI
+AngularJS
+Angular, React
+NodeJS, Express, Middleware
+Redux
+SAAS
+
+Git
+SonarQube
+Maven, Gradle
+Jenkins, TravisCI, Google Build
+
+Cloud
+AWS
+GCloud
+Azure
+
+

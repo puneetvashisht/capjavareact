@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import {
     Link
   } from "react-router-dom";
-// import AddEmployee from './AddEmployee';
-import { connect } from 'react-redux';
+import AddEmployee from './AddEmployee';
 
 // const employees = [
 //     {id: 3, name: "Ravi", salary: 34343.34},
@@ -14,7 +13,7 @@ import { connect } from 'react-redux';
 // Get employees json from Spring app..
 
 
-class ViewEmployee extends Component {
+export default class ViewEmployee extends Component {
 
     constructor(){
         super();
@@ -24,14 +23,14 @@ class ViewEmployee extends Component {
     componentDidMount() {
         console.log('Initialization...')
 
-        // fetch('http://localhost:8080/api/employees/')
-        //     .then(response => response.json())
-        //     .then(
-        //         data => {
-        //             console.log(data)
-        //             this.setState({employees:data})
-        //         }
-        //     );
+        fetch('http://localhost:8080/api/employees/')
+            .then(response => response.json())
+            .then(
+                data => {
+                    console.log(data)
+                    this.setState({employees:data})
+                }
+            );
     }
     
 
@@ -53,7 +52,7 @@ class ViewEmployee extends Component {
 
     render() {
 
-        var employeeList = this.props.employees.map((employee, i)=>{
+        var employeeList = this.state.employees.map((employee, i)=>{
             return (
                     <tr key={i}>
                         <th scope="row">{i + 1}</th>
@@ -69,9 +68,12 @@ class ViewEmployee extends Component {
         return (
             <div class="row">
 
+                <AddEmployee />
+                <hr></hr>
+
 
                 <div className="alert alert-success" role="alert">
-                    {this.props.message}
+                    {this.state.message}
                 </div>
             
             <table className="table">
@@ -91,16 +93,3 @@ class ViewEmployee extends Component {
         )
     }
 }
-
-
-const mapStateToProps = (state) => {
-    console.log('State is:: ', state)
-    return {
-        employees: state.employees
-    }
-}
-
-
-// export default ViewEmployee;
-export default connect(mapStateToProps)(ViewEmployee);
-

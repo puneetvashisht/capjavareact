@@ -10,7 +10,8 @@ const initialState = {
 }
 //1. Create a store
 // 2. // Create  reducer
-const store = redux.createStore((state = initialState, { type, payload }) => {
+
+var reducer = (state = initialState, { type, payload }) => {
 
     console.log(type);
     switch (type) {
@@ -29,7 +30,9 @@ const store = redux.createStore((state = initialState, { type, payload }) => {
     default:
         return state
     }
-})
+}
+
+const store = redux.createStore(reducer)
 
 store.subscribe(()=> console.log(store.getState()));
 

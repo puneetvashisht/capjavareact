@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
 
- class AddEmployee extends Component {
+export default class AddEmployee extends Component {
 
     constructor(){
         super();
@@ -16,23 +15,20 @@ import { connect } from 'react-redux';
         // console.log('method for adding employee', salary)
         event.preventDefault();
 
-
-        this.props.onAddEmployee({id: 0, name: this.name.current.value, salary: this.salary.current.value});
-
-        // const url = 'http://localhost:8080/api/employees/';
-        // fetch(url, {
-        //     method: "POST",
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({name: this.name.current.value, salary: this.salary.current.value})
-        // })
-        // .then(response => {
-        //     console.log(response.status);
-        //     if(response.status === 201){
-        //         this.setState({message: 'Employee inserted sucessfully!!'})
-        //     }
-        // })
+        const url = 'http://localhost:8080/api/employees/';
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: this.name.current.value, salary: this.salary.current.value})
+        })
+        .then(response => {
+            console.log(response.status);
+            if(response.status === 201){
+                this.setState({message: 'Employee inserted sucessfully!!'})
+            }
+        })
         
     }
 
@@ -65,22 +61,3 @@ import { connect } from 'react-redux';
         )
     }
 }
-
-
-// export default AddEmployee;
-
-const mapStateToProps = (state) => {
-    return {
-        // message: state.employee.message,
-        // employees: state.employees
-    }
-}
-
-const mapDispatchToState = (dispatch) => {
-    return {
-        onAddEmployee: (payload) => dispatch({type: "ADD_EMPLOYEE", payload: payload})
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToState)(AddEmployee);

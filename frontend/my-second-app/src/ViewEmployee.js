@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {
     Link
   } from "react-router-dom";
+import AddEmployee from './AddEmployee';
 
 // const employees = [
 //     {id: 3, name: "Ravi", salary: 34343.34},
@@ -66,6 +67,11 @@ export default class ViewEmployee extends Component {
 
         return (
             <div class="row">
+
+                <AddEmployee />
+                <hr></hr>
+
+
                 <div className="alert alert-success" role="alert">
                     {this.state.message}
                 </div>

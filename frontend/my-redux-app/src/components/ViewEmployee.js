@@ -5,6 +5,8 @@ import {
 // import AddEmployee from './AddEmployee';
 import { connect } from 'react-redux';
 
+import * as actions from '../actions/action'
+
 // const employees = [
 //     {id: 3, name: "Ravi", salary: 34343.34},
 //     {id: 34, name: "Priya", salary: 44343.34},
@@ -23,6 +25,7 @@ class ViewEmployee extends Component {
 
     componentDidMount() {
         console.log('Initialization...')
+        this.props.onFetchEmployees();
 
         // fetch('http://localhost:8080/api/employees/')
         //     .then(response => response.json())
@@ -102,6 +105,12 @@ const mapStateToProps = (state) => {
 }
 
 
+const mapDispatchToState = (dispatch) => {
+    return {
+        onFetchEmployees: () => dispatch(actions.fetchEmployees())
+    }
+}
+
 // export default ViewEmployee;
-export default connect(mapStateToProps)(ViewEmployee);
+export default connect(mapStateToProps, mapDispatchToState)(ViewEmployee);
 

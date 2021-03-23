@@ -11,7 +11,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
 
-    console.log(type);
+    // console.log(type);
     switch (type) {
         
     case "ADD_EMPLOYEE":

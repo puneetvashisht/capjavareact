@@ -1,6 +1,7 @@
 
 import './App.css';
 import {Link, BrowserRouter as Router, Switch,  Route} from 'react-router-dom'
+import Dropdown from './Dropdown'
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Update />
           </Route>
           <Route path="/">
-            <View />
+            <Dropdown />
           </Route>
         </Switch>
      
@@ -40,11 +41,7 @@ function App() {
 export default App;
 
 
-function View(){
-  return(
-    <h2>View Component</h2>
-  );
-}
+
 
 function Add(){
   return(

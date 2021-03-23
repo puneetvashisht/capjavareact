@@ -2,8 +2,27 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 import * as actions from '../actions/action'
+import { Button } from '@material-ui/core';
+
+
+
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Slider from '@material-ui/core/Slider';
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
 
  class AddEmployee extends Component {
+
+    
 
     constructor(){
         super();
@@ -62,7 +81,19 @@ import * as actions from '../actions/action'
 
 
                 <button type="button" className="btn btn-primary" onClick={this.addEmployee.bind(this)}>Add Employee</button>
+                <Typography id="discrete-slider-small-steps" gutterBottom>
+        Small steps
+      </Typography>
+      <Slider
+        defaultValue={0.00000005}
 
+        aria-labelledby="discrete-slider-small-steps"
+        step={0.00000001}
+        marks
+        min={-0.00000005}
+        max={0.0000001}
+        valueLabelDisplay="auto"
+      />
             </div>
         )
     }

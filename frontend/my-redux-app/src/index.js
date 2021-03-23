@@ -9,7 +9,13 @@ import reducer from "./store/reducer"
 
 import thunk from 'redux-thunk';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+
+const logger = (store) => (next) => (action) => {
+  console.log("Action fired", action);
+  next(action);
+}
+
+const store = createStore(reducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <React.StrictMode>
